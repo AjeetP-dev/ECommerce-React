@@ -1,0 +1,1 @@
+try to implement quantity as non-state variable
