@@ -1,43 +1,20 @@
-import { ButtonGroup, Container, Content, Drawer,Header,Button } from "rsuite"
+import { ButtonGroup, Container, Content, Drawer, Header, Button } from "rsuite"
 import React from "react"
-import {cartFromContext}  from "./CartContext"
+import { cartFromContext } from "./CartContext"
+import CartItemsCard from "./CartItemsCard"
 
-export default function Cart({isCartVisible,setIsCartVisible}){
-    const {addToCart,removeFromCart}=React.useContext(cartFromContext)
-    let cart=JSON.parse(localStorage.getItem("cart"))
-    const [quantity,setQuantity]=React.useState(null)
-    const quantityRef=React.useRef()
-    const totalRef=React.useRef()
-    const priceRef=React.useRef()
+export default function Cart({ isCartVisible, setIsCartVisible }) {
+    let cart = JSON.parse(localStorage.getItem("cart"))
 
-const incQuant=(item)=>{
-    addToCart(item)
-}
-
-    return(<>
-    <Drawer open={isCartVisible} onClose={()=>setIsCartVisible(false)} placement="right" size="xs" backdrop={true} >
-        <Drawer.Header><Drawer.Title>Cart</Drawer.Title></Drawer.Header>
-        <Drawer.Body>
-            {cart!==null&&Object.keys(cart).map((iterator)=>
-            <>
-            <Container>
-                <Header>
-                    <p>{cart[iterator]["name"]}</p>
-                    <img className="prodImages" src={`${cart[iterator]["thumbnail"]}`} />
-            </Header>
-            <Content style={{width:"100%"}}>
-            @<span>{cart[iterator]["price"]}</span>
-            <dt>Quantity:</dt>
-            <Button>-</Button>
-            <span>{cart[iterator]["quantity"]}</span>
-            <Button onClick={()=>incQuant({[iterator]:cart[iterator]})}>+</Button>
-            <Button onClick={()=>removeFromCart({[iterator]:cart[iterator]})}>Remove</Button>
-            <dt>Total:</dt><dl>{Number(cart[iterator]["quantity"])*Number(cart[iterator]["price"])}</dl>
-            </Content>
-            </Container>
-        </>
+    return (<>
+        <Drawer open={isCartVisible} onClose={() => setIsCartVisible(false)} placement="right" size="xs" backdrop={true} >
+            <Drawer.Header><Drawer.Title>Cart</Drawer.Title></Drawer.Header>
+            <Drawer.Body>
+                {cart !== null && Object.keys(cart).map((iterator) =>
+                    <CartItemsCard item={cart[iterator]}
+                        id={iterator} />
                 )}
-        </Drawer.Body>
-    </Drawer>
+            </Drawer.Body>
+        </Drawer>
     </>)
 }
