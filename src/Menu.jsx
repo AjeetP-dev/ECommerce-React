@@ -3,6 +3,7 @@ import products from "./products.json"
 import ProductsCard from "./ProductsCard"
 import { Routes, Route } from "react-router-dom"
 import CartContext from "./CartContext"
+import "./styles/menu.scss"
 
 export default function Menu({ categoryId }) {
     let [numOfItemsInCart, setNumOfItemsInCart] = React.useState(0)

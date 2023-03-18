@@ -1,0 +1,28 @@
+@import "_common";
+
+
+nav {
+    @include d-flex-justify-btw;
+    padding: 0.3px 4%;
+    margin-bottom: 50px;
+    font-family: 'Satisfy', cursive;
+    font-size: 40px;
+    color: #575959;
+
+    div {
+        @include d-flex-justify-btw;
+        width: 26%;
+        min-width: 400px;
+        margin-right:60px;
+
+        .navElem {
+            font-family: 'Satisfy', cursive;
+            font-size: 40px;
+            color: #575959;
+            cursor: pointer;
+            background: transparent;
+            text-decoration: none;
+            border: none;
+        }
+    }
+}

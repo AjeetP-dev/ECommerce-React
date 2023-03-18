@@ -1,8 +1,9 @@
-import { Nav, CheckPicker, Drawer, Tooltip, Whisper, Checkbox } from "rsuite"
+import { Nav,Button, CheckPicker, Drawer, Tooltip, Whisper, Checkbox } from "rsuite"
 import HomeIcon from '@rsuite/icons/legacy/Home';
 import { Link } from 'react-router-dom'
 import categories from "./categories.json"
 import React from "react";
+import "./styles/navbar.scss"
 import Cart from "./Cart"
 
 
@@ -12,8 +13,8 @@ export default function Navbar({setIsCartVisible}) {
         <>
             <nav id="navbar" >
                 <div>
-                <span className="navElem" appearance="subtle"><Link classname="links" to="/"><HomeIcon />&nbsp;Home</Link></span>
-                <button className="navElem" appearance="subtle" onClick={()=>setIsCartVisible(true)}>Cart</button>
+                <Button className="navElem" appearance="subtle"><Link classname="links" to="/"><HomeIcon />&nbsp;Home</Link></Button>
+                <Button className="navElem" appearance="subtle" onClick={()=>setIsCartVisible(true)}>Cart</Button>
                 </div>
                 <span className="navElem" appearance="subtle"><Link classname="links" to="/">Logout</Link></span>
             </nav>

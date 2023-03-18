@@ -1,0 +1,52 @@
+body{
+    background-repeat: no-repeat;
+    min-width: 472px;
+  }
+  .menuOptions{
+    width: 30%;
+    margin:1%;
+    margin-bottom: 2%;
+    min-width: 390px;
+    text-align: left;
+  }
+  .menuOptions>div{
+    display: flex;
+    min-width: 400px;
+    min-height: 230px;
+    width: 30%;
+    margin-bottom: 4%;
+    margin-right:10%;
+    margin-bottom:6%;
+    padding-left:30px;
+    height: 150px;
+  }
+  .prodDetails{
+  margin-left: 3em;
+  width:55%;
+  }
+  .prodImages{
+    width: 200px;
+    height:200px;
+    border-radius: 30%;
+  }
+  .prodNames{
+    font-family: 'Satisfy', cursive;
+    font-size: 1.5em;
+    font-weight: 400;
+  }
+  .totalPrice{
+    font-weight: 700;
+    font-size: 19px;
+    margin-bottom:15px;
+  }
+  #menu{
+    display: flex;
+    flex-wrap: wrap;
+    padding: 4px;
+  }
+  .addToCart{
+    width: 20%;
+    background: transparent;
+    border: none;
+    font-weight:900;
+  }
