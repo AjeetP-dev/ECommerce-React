@@ -2,6 +2,7 @@ import { ButtonGroup, Container, Content, Drawer, Header, Button } from "rsuite"
 import React from "react"
 import { cartFromContext } from "./CartContext"
 import CartItemsCard from "./CartItemsCard"
+import "./styles/cart.scss"
 
 export default function Cart({ isCartVisible, setIsCartVisible }) {
     let cart = JSON.parse(localStorage.getItem("cart"))

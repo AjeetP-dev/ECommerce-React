@@ -1,0 +1,29 @@
+.prodImages {
+    margin: 1% 8% 1% 1%;
+    width: 100%;
+    min-width: 120px;
+    height: auto;
+}
+
+.rs-container{
+    display: flex;
+    flex-direction: column;
+    font-size: 15px;
+    dt{
+        display: inline-block;
+        margin-right: 20%;
+    }
+    dl{
+        display: inline-block;
+        margin-right: 30%;
+    }
+
+    .cart-card-quantity{
+        font-size: 19px;
+        margin: 0 10%;
+    }
+
+}
+
+
+
