@@ -4,6 +4,7 @@ import ProductsCard from "./ProductsCard"
 import { Routes, Route } from "react-router-dom"
 import CartContext from "./CartContext"
 import "./styles/menu.scss"
+import { Animation } from "rsuite"
 
 export default function Menu({ categoryId }) {
     let [numOfItemsInCart, setNumOfItemsInCart] = React.useState(0)
@@ -33,9 +34,11 @@ export default function Menu({ categoryId }) {
             <>
                 {products.map((iterator) =>
                     iterator["categoryId"] === categoryId &&
+                    <Animation.Slide placement='right' in={true}>
                     <div className="menuOptions" key={iterator["id"]}>
                          {genProdCard(iterator)}
                     </div>
+                    </Animation.Slide>
                 )
             }
             
@@ -45,9 +48,11 @@ export default function Menu({ categoryId }) {
         <>
             <div id="menu">
                 {products.map((iterator) =>
+                <Animation.Slide placement='right' in={true}>
                     <div className="menuOptions" key={iterator["id"]}>
                  {genProdCard(iterator)}
                     </div>
+                    </Animation.Slide>
                 )}
             </div>
         </>

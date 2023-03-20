@@ -6,6 +6,10 @@ import React from 'react'
 import categories from "./categories.json"
 import Cart from './Cart'
 import CartContext from "./CartContext"
+import { Container, Divider,Animation, Form } from 'rsuite'
+import Footer from './Footer'
+import "./styles/app.scss"
+import {Button} from "rsuite"
 
 function App() {
   const [isCartVisible, setIsCartVisible] = React.useState(false)
@@ -13,15 +17,17 @@ function App() {
   return (
     <>
       <Navbar setIsCartVisible={setIsCartVisible} />
-      
+      <Divider/>
       <CartContext>
       <Cart isCartVisible={isCartVisible}
         setIsCartVisible={setIsCartVisible} />
       </CartContext>
 
       <Routes>
-        <Route exact path='menu' element={
-          <Menu categoryId={null} />} />
+        <Route exact path='menu' element={<>
+          
+          <Menu categoryId={null} />
+          </>}/>
 
         {categories.map((iterator) =>
           <Route path={`menu/${iterator.id}`} element={
@@ -42,6 +48,9 @@ function App() {
           <h1>error 404:<br />Page Not Found</h1></>} />
 
       </Routes>
+
+      
+      <footer style={{background: "grey",top:"100",position:"sticky"}}><Footer/></footer>
     </>
   )
 }

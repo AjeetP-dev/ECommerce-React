@@ -20,6 +20,7 @@ $minCardWidth:480px;
         display: flex;
 
         .prodImages {
+            border-radius: 20px;
             margin: 1% 8% 1% 1%;
             width: 40%;
             min-width: 120px;
@@ -32,6 +33,20 @@ $minCardWidth:480px;
             margin-bottom: 10%;
             font-size: 25px;
             font-weight: 600;
+        }
+        .rs-btn-lg{
+            background-color: #3c6f76;
+            color: aliceblue;
+            border-radius: 10px;
+            font-weight: 700;
+            transition: all 0.2s ease-out;
+        }
+        .rs-btn-lg:hover{
+            background-color:  #3c6c68;
+            color: aliceblue;
+            border-radius: 10px;
+            
+            transition: all 0.3s ease-in;
         }
 
     }

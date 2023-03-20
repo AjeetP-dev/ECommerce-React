@@ -12,13 +12,10 @@ export default function CartContext({ children }) {
             console.log(cart)
         localStorage.setItem("cart", JSON.stringify({...cart}))}
 
-        // else
-        // localStorage.setItem("cart", JSON.stringify({ ...cart, ...item }))
     }
 
 
     const addToCart = (item) =>{
-        console.log(item)
         let cart = JSON.parse(localStorage.getItem("cart"))===null?{}:JSON.parse(localStorage.getItem("cart"))
         if(cart!=null && Object.keys(item)[0] in cart===true){
             console.log("adding")
@@ -26,8 +23,8 @@ export default function CartContext({ children }) {
             console.log(cart)
         localStorage.setItem("cart", JSON.stringify({...cart}))}
 
-        // else
-        // localStorage.setItem("cart", JSON.stringify({ ...cart, ...item }))
+        else
+        localStorage.setItem("cart", JSON.stringify({ ...cart, ...item }))
     }
 
     const removeFromCart = (item) => {
