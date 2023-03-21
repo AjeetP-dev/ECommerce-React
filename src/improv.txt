@@ -1,0 +1,3 @@
+try to implement quantity as non-state variable
+CartItemsCard to be implemented with state
+footer in static html

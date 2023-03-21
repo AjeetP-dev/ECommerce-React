@@ -1,0 +1,56 @@
+@use "sass:math";
+@import "common";
+
+$minCardWidth:480px;
+#menu{
+    @include d-flex-justify-btw;
+    flex-wrap: wrap;
+    min-width: $minCardWidth*1.12;
+}
+.menuOptions {
+    width: 30%;
+    margin: 1%;
+    margin-bottom: 9%;
+    min-width: $minCardWidth;
+    min-height: math.div(6px,16px)*$minCardWidth;
+    text-align: left;
+
+    div {
+        width: 100%;
+        display: flex;
+        
+        .prodImages {
+            border-radius: 20px;
+            margin: 1% 8% 1% 1%;
+            width: 40%;
+            min-width: 120px;
+            height: 20vh;
+        }
+        .prodNames{
+            font-size: 30px;
+        }
+        .price{
+            max-height: 40px;
+            font-size: 25px;
+            font-weight: 600;
+        }
+        .rs-btn-lg{
+            background-color: #3c6f76;
+            color: aliceblue;
+            border-radius: 10px;
+            font-weight: 700;
+            max-height: 60px;
+            transition: all 0.2s ease-out;
+        }
+        h4{
+            display: block;
+        }
+        .rs-btn-lg:hover{
+            background-color:  #3c6c68;
+            color: aliceblue;
+            border-radius: 10px;
+            
+            transition: all 0.3s ease-in;
+        }
+    }}
+    

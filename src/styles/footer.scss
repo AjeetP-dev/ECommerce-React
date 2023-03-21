@@ -1,0 +1,27 @@
+#footer{
+display: flex;
+flex-direction: row;
+flex-wrap: wrap;
+
+div{
+    box-sizing: border-box;
+}}
+#title {
+    display: inline;
+    max-width: 450px;
+    min-width: 450px;
+    text-align: left;
+    font-size: 3rem;
+    margin-right: 2%;
+}
+#subscription{
+    max-width: 450px;
+    width: 450px;
+}
+dt {
+    display: inline-block;
+}
+
+dl {
+    display: inline-block;
+}
