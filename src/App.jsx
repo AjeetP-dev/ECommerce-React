@@ -55,7 +55,7 @@ function App() {
       </SharedStateContext>
 
 
-      <footer id="footer" style={{ background: "grey", top: "100", position: "sticky" }}><Footer /></footer>
+      <footer id="footer" style={{ top: "100", position: "sticky",minWidth: "490px"}}><Footer /></footer>
     </>
   )
 }

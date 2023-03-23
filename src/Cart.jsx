@@ -20,7 +20,9 @@ export default function Cart({ isCartVisible, setIsCartVisible, setNumberOfItems
 
     return (<>
         <Drawer open={isCartVisible} onClose={() => setIsCartVisible(false)} placement="right" size="sm" backdrop={true} >
-            <Drawer.Header><Drawer.Title>Cart</Drawer.Title></Drawer.Header>
+            <Drawer.Header style={{backgroundColor:"#354131"}}>
+                <Drawer.Title><h3 style={{fontFamily: "Montserrat Alternates', sans-serif",color:"#d9dfdf"}}>Cart</h3></Drawer.Title>
+            </Drawer.Header>
             {total !== "0" &&
                 <Drawer.Body style={{ display: "flex", flexDirection: "column", justifyContent: "space-between" }}>
                     <section className="cart-items-section">
@@ -35,12 +37,12 @@ export default function Cart({ isCartVisible, setIsCartVisible, setNumberOfItems
                         }
                     </section>
                     {/* <button ref={grandTotalRef}>{grandTotal}</button> */}
-                    <button id="grandTotal">{total}</button>
+                    <button id="grandTotal">Proceed to Pay {total}</button>
                 </Drawer.Body>
             }
             {total === "0" &&
                 <Drawer.Body style={{display:"flex", flexDirection:"column",alignItems:"center",boxSizing:"border-box"}}>
-                    <img src={emptyCartyBG} style={{width:"400px", marginBottom:"10%"}}/>
+                    <img src={emptyCartyBG} style={{width:"400px", marginBottom:"10%",opacity:"0.6"}}/>
                     <h3>Cart Empty </h3>
                 </Drawer.Body>
             }

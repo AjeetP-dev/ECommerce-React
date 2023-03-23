@@ -4,17 +4,28 @@
 $minCardWidth:480px;
 #menu{
     @include d-flex-justify-btw;
-    padding: 0px 5% ;
+    padding: 0px 3.6% ;
     flex-wrap: wrap;
     min-width: $minCardWidth*1.12;
 }
 .menuOptions {
-    width: 30%;
+    width: 27%;
     margin: 1%;
     margin-bottom: 9%;
     min-width: $minCardWidth;
     min-height: math.div(6px,16px)*$minCardWidth;
     text-align: left;
+    padding:0.3% 2%;
+    background-color: aliceblue;
+    border-radius: 30px;
+    box-shadow: 5px 5px 20px aliceblue;
+    transition: all 0.27s ease-out;
+
+    &:hover{
+        width: 28%;
+        padding:0.1% 1%;
+        transition: all 0.1s ease-in;
+    }
 
     div {
         width: 100%;
@@ -36,7 +47,7 @@ $minCardWidth:480px;
             font-weight: 600;
         }
         .rs-btn-lg{
-            background-color: #3c6f76;
+            background-color: $main-color-2;
             color: aliceblue;
             border-radius: 10px;
             font-weight: 700;

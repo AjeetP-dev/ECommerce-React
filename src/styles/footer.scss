@@ -1,27 +1,77 @@
+@import "common";
 #footer{
+text-align: center;
+font-family: 'Montserrat Alternates', sans-serif;
+font-weight: 600;
+width: 100%;
+min-width: $min-width;
 display: flex;
 flex-direction: row;
 flex-wrap: wrap;
+color:#d9dfdf;
+background-color: $main-color-2;
+padding-bottom: 2%;
 
+
+#footer-div1{
+    @include d-flex-justify-btw;
+    flex-wrap:wrap;
+    width: 50%;
+}
+#footer-div2{
+    @include d-flex-justify-btw;
+    flex-wrap:wrap;
+    margin-left: 10%;;
+}
 div{
     box-sizing: border-box;
 }}
 #title {
-    display: inline;
-    max-width: 450px;
-    min-width: 450px;
-    text-align: left;
-    font-size: 3rem;
-    margin-right: 2%;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+    width: 50%;
+    min-width: 370px;
+    margin-bottom: 7%;
+    h1{
+        text-align: left;
+    }
 }
 #subscription{
-    max-width: 450px;
-    width: 450px;
+    text-align: left;
+    margin-bottom: 7%;
+    width: 50%;
+    min-width: 370px;
+    display: flex;
+    flex-direction: column;
+    span{
+        display: flex;
+        flex-wrap: nowrap;
+    input{
+        margin: "1% 0";
+        width: 50%;
+        min-width: 250px;
+        height: 50px;
+        color: black;
+
+    }
+    button{
+        margin: "1% 0";
+        width: 10%;
+        min-width: 150px;
+        height: 50px;
+        color: black;
+        letter-spacing: 1px;
+        border:none;
+    }
+}
 }
 dt {
     display: inline-block;
+    font-size: 15px;
 }
 
 dl {
+    margin-left: 10px;
     display: inline-block;
 }
