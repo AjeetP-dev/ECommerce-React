@@ -4,6 +4,7 @@
 $minCardWidth:480px;
 #menu{
     @include d-flex-justify-btw;
+    padding: 0px 5% ;
     flex-wrap: wrap;
     min-width: $minCardWidth*1.12;
 }

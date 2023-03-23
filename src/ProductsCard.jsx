@@ -1,13 +1,9 @@
 import { Container, Header, Content, Footer, ButtonGroup, Button, IconButton, FlexboxGrid } from "rsuite";
 import React from "react";
-import { cartFromContext } from "./CartContext";
+import { cartFromContext } from "./contexts/CartContext";
 
 export default function ProductsCard({ id, name, price, currency, delivery, thumbnail, instock, categoryId ,setNumOfItemsInCart}) {
-    const quantRef = React.useRef();
-    let itemsInCart=JSON.parse(localStorage.getItem("cart"))
-    const [quantity, setQuantity] = React.useState("Add")
-
-    let {addToCart,removeFromCart}=React.useContext(cartFromContext)
+    let {addToCart}=React.useContext(cartFromContext)
 
     let item={[id]:
         {name:name,
@@ -16,6 +12,7 @@ export default function ProductsCard({ id, name, price, currency, delivery, thum
         thumbnail:thumbnail,
         quantity:1
         }}
+
 
     return (
         <>
