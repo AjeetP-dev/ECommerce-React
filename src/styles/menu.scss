@@ -2,18 +2,17 @@
 @import "common";
 
 $minCardWidth:480px;
+
+
 #menu{
     @include d-flex-justify-btw;
     padding: 0px 3.6% ;
     flex-wrap: wrap;
-    min-width: $minCardWidth*1.12;
 }
 .menuOptions {
     width: 27%;
     margin: 1%;
     margin-bottom: 9%;
-    min-width: $minCardWidth;
-    min-height: math.div(6px,16px)*$minCardWidth;
     text-align: left;
     padding:0.3% 2%;
     background-color: aliceblue;
@@ -35,7 +34,6 @@ $minCardWidth:480px;
             border-radius: 20px;
             margin: 1% 8% 1% 1%;
             width: 40%;
-            min-width: 120px;
             height: 20vh;
         }
         .prodNames{
@@ -65,4 +63,50 @@ $minCardWidth:480px;
             transition: all 0.3s ease-in;
         }
     }}
+
+@media screen and (max-width: 420px){
+    #menu{
+        display: block;
+    }
+    .menuOptions {
+        margin: auto;
+        width: 80%;
+        margin-bottom: 9%;
+        text-align: center;
     
+        div {
+            width: 100%;
+            display: block;
+            margin: auto;
+            font-size: 10px;
+            
+            .prodImages {
+                border-radius: 10px;
+                width: 70%;
+                margin: 4% auto;
+                height: auto;
+                min-height: 130px;
+            }
+            .prodNames{
+                font-size: 25px;
+            }
+            .price{
+                font-size: 20px;
+                font-weight: 600;
+                margin-bottom: 3%;
+            }
+            .rs-btn-lg{
+                background-color: $main-color-2;
+                color: aliceblue;
+                border-radius: 10px;
+                font-weight: 700;
+                transition: all 0.2s ease-out;
+            }
+            .rs-btn-lg:hover{
+                background-color:  #3c6c68;
+                color: aliceblue;
+                border-radius: 10px;
+                transition: all 0.3s ease-in;
+            }
+        }}  
+    }

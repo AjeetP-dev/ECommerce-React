@@ -12,7 +12,7 @@ export default function FIlters({ setFilterSelected }) {
             setFilterSelected([])
     }
     return (
-            <div style={{ width: "100%", marginBottom: "50px", marginLeft: "60px" }}>
+            <div style={{ width: "100%", marginBottom: "50px" }}>
                 <CheckPicker appearance="subtle" placeholder="Filters" data={dataForFilters} searchable={false} onSelect={selectFilters}>
                 </CheckPicker>
             </div>
