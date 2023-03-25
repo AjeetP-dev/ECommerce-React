@@ -48,9 +48,7 @@ export default function App() {
 
         </CartContext>
       </SharedStateContext>
-
-
-      <footer id="footer" style={{ top: "100", position: "sticky", minWidth: "490px" }}><Footer /></footer>
+      <footer id="footer"><Footer /></footer>
     </>
   )}
 

@@ -17,3 +17,22 @@ label{
 .rs-picker-toggle-placeholder{
     font-size: 30px;
 }
+
+@media screen and (max-width:420px) {
+    .rs-picker-check-menu{
+        display: block;
+        label{
+            box-sizing: content-box;
+        }
+        }
+        .rs-check-item{
+            box-sizing: content-box;
+        }
+        .rs-picker-check-menu{
+            background: transparent;
+        
+        }
+        .rs-picker-toggle-placeholder{
+            font-size: 30px;
+        }
+}
