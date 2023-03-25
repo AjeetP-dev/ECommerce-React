@@ -48,8 +48,6 @@ export default function App() {
 
         </CartContext>
       </SharedStateContext>
-
-
       <footer id="footer"><Footer /></footer>
     </>
   )}
