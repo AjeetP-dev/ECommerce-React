@@ -1,6 +1,7 @@
 @import "common";
 body{
 background-color: $main-color-1;
+min-width: 380px;
 }
 #root{
     height: 100vh;
@@ -9,7 +10,7 @@ background-color: $main-color-1;
     }
 }
 
-@media screen and (max-width:420px) {
+@media screen and (max-width:600px) {
     h1{
         font-size: 29px;
     }

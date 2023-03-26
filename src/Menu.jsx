@@ -18,7 +18,7 @@ export default function Menu({ categoryId }) {
                     price={prodDetails["price"]}
                     currency={prodDetails["currency"]}
                     delivery={prodDetails["delivery"]}
-                    instock={prodDetails["instock"]}
+                    inStock={prodDetails["inStock"]}
                     categoryId={prodDetails["categoryId"]}
                     thumbnail={prodDetails["thumbnail"]}
                 />
@@ -46,7 +46,7 @@ export default function Menu({ categoryId }) {
         return (
             <>
                 <FIlters setFilterSelected={setFilterSelected} />
-                    <Animation.Slide placement='right' in={true}>
+                <Animation.Slide placement='right' in={true}>
                 <div id="menu">
                     {products.map((iterator) =>
                         iterator["categoryId"] === categoryId && (filterSelected.length === 0 || checkFilter(iterator)) &&
@@ -57,9 +57,7 @@ export default function Menu({ categoryId }) {
                     }
                     </div> 
                     </Animation.Slide>
-
-            </>
-        )
+            </>)
     else return (
         <>
             <FIlters setFilterSelected={setFilterSelected} />

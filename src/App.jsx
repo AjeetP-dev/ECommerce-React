@@ -31,9 +31,7 @@ export default function App() {
 
             {categories.map((iterator) =>
               <Route path={`menu/${iterator.id}`} element={
-                <div id="menu" key={iterator.id}>
-                  <Menu categoryId={iterator.id} />
-                </div>}
+                  <Menu categoryId={iterator.id} />}
               />)}
 
 
