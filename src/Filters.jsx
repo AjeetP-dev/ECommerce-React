@@ -1,30 +1,26 @@
-import { Checkbox, CheckPicker } from "rsuite";
 import "./styles/filters.scss"
 
 
 export default function FIlters({ setFilterSelected }) {
-    const dataForFilters = [{ label: "delivery", value: "delivery" }, { label: "dummy", value: "dummy" }]
+function addToFilters(event){
+event.target.checked===true && setFilterSelected(prev=>[...prev,event.target.name])
+event.target.checked===false && setFilterSelected(prev=>prev.filter((iterator)=>
+    iterator!==event.target.name
+))
+}
 
-    const selectFilters = (value, item, event) => {
-        if (event.target.checked)
-            setFilterSelected([item.value])
-        else
-            setFilterSelected([])
-    }
     return (
             <div id="filter-container">
-                <span style={{width:"20%"}}><h3>Filters</h3></span>
+                <span style={{width:"10%"}}><h3>Filters</h3></span>
                 <div id="filters">
                 <span>
                     <p>Available For Delivery</p>
-                <input type="checkbox"/>
+                <input type="checkbox" name="delivery" onClick={addToFilters}/>
                 </span>
                 <span>
                     <p>Exclude Out of stock</p>
-                <input type="checkbox"/>
+                <input type="checkbox" name="inStock" onClick={addToFilters}/>
                 </span>
                 </div>
-                {/* <CheckPicker appearance="subtle" placeholder="Filters" data={dataForFilters} searchable={false} onSelect={selectFilters}>
-                </CheckPicker> */}
             </div>
     )}

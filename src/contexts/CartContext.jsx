@@ -1,16 +1,31 @@
 import React from "react"
-import { toastPlacements } from "rsuite/esm/toaster/ToastContainer"
 import { sharedStateContext } from "./SharedStatesContext"
+import { toaster, Notification, Placeholder } from 'rsuite'
+
 export const cartFromContext = React.createContext()
 
 
 export default function CartContext({ children }) {
     const { setTotal, setNumberOfItemsInCart } = React.useContext(sharedStateContext)
+    let key;
+
+    function notify(header) {
+        let {type,productName}=header
+        if(type==="added"){
+        toaster.push(
+            (<Notification type="success" header={`${productName} is added`}>
+            </Notification>),{duration:730})
+        }
+        else
+        toaster.push(
+            (<Notification type="info" header={`${productName} is removed`}>
+            </Notification>),{duration:600})
+    }
 
     const decreaseQuant = (item) => {
         let itemID = Object.keys(item)[0]
         let itemProperties = Object.values(item)[0]
-        let { price, quantity } = itemProperties
+        let { price, quantity, name } = itemProperties
         let cart = JSON.parse(localStorage.getItem("cart"))
 
         // updating cart in local Storage
@@ -20,7 +35,9 @@ export default function CartContext({ children }) {
             return
         }
         localStorage.setItem("cart", JSON.stringify({ ...cart }))
-
+        
+        notify({productName:name,type:"remove"})
+        
         // updating total in local Storage and global state variable total
         setTotal((prev) => {
             let newTotal = Number(prev) - Number(price)
@@ -41,9 +58,10 @@ export default function CartContext({ children }) {
     const addToCart = (item) => {
         let itemID = Object.keys(item)[0]
         let itemProperties = Object.values(item)[0]
-        let { price, quantity } = itemProperties
-
+        let { price, quantity, name } = itemProperties
         let cart = JSON.parse(localStorage.getItem("cart")) === null ? {} : JSON.parse(localStorage.getItem("cart"))
+
+        notify({productName:name,type:"added"})
 
         // updating cart in local Storage
         if (itemID in cart === true) {
@@ -73,7 +91,9 @@ export default function CartContext({ children }) {
         let cart = JSON.parse(localStorage.getItem("cart"))
         let updatedCart = {}
         let itemProperties = Object.values(item)[0]
-        let { price, quantity } = itemProperties
+        let { price, quantity, name } = itemProperties
+
+        notify({productName:name,type:"remove"})
 
         //If cart contains no items setting the initial values
         if (Object.keys(cart).length === 1) {
@@ -112,7 +132,7 @@ export default function CartContext({ children }) {
 
     return (
         <>
-            <cartFromContext.Provider value={{ addToCart, removeFromCart, decreaseQuant}}>
+            <cartFromContext.Provider value={{ addToCart, removeFromCart, decreaseQuant }}>
                 {children}
             </cartFromContext.Provider>
         </>

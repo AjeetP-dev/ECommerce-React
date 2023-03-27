@@ -1,4 +1,4 @@
-import React, { useContext } from "react"
+import React from "react"
 import products from "./products.json"
 import ProductsCard from "./ProductsCard"
 import CartContext from "./contexts/CartContext"
@@ -26,38 +26,40 @@ export default function Menu({ categoryId }) {
         )
     }
 
+    // Function Which takes in a product as parameter and return true if product is to be Shown
     function checkFilter(prod) {
-        let shouldShow = false
-        filterSelected.forEach((iterator) => {
-            if (Object.keys(prod).includes(iterator))
-                switch (iterator) {
-                    case "delivery":
-                        if (prod["delivery"] === true)
-                            shouldShow = true
-                        break;
-                    default:
-                        break;
+        let shouldShow = true
+        for (let index = 0; index < filterSelected.length; index++) {
+            if (Object.keys(prod).includes(filterSelected[index]))
+                if (prod[filterSelected[index]] === true)
+                    shouldShow = true
+                else {
+                    shouldShow = false
+                    break
                 }
-        })
+        }
         return shouldShow
     }
 
+    // Showing All Products Without Category type Rendering
     if (categoryId !== null)
         return (
             <>
                 <FIlters setFilterSelected={setFilterSelected} />
                 <Animation.Slide placement='right' in={true}>
-                <div id="menu">
-                    {products.map((iterator) =>
-                        iterator["categoryId"] === categoryId && (filterSelected.length === 0 || checkFilter(iterator)) &&
+                    <div id="menu">
+                        {products.map((iterator) =>
+                            iterator["categoryId"] === categoryId && (filterSelected.length === 0 || checkFilter(iterator)) &&
                             <div className="menuOptions" key={iterator["id"]}>
                                 {genProdCard(iterator)}
                             </div>
                         )
-                    }
-                    </div> 
-                    </Animation.Slide>
+                        }
+                    </div>
+                </Animation.Slide>
             </>)
+
+    // Showing All Products Category Wise
     else return (
         <>
             <FIlters setFilterSelected={setFilterSelected} />

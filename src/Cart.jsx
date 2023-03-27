@@ -26,7 +26,6 @@ export default function Cart({ isCartVisible, setIsCartVisible }) {
                             />
                         )}
                     </section>
-                    {/* <button ref={grandTotalRef}>{grandTotal}</button> */}
                     <button id="grandTotal">Proceed to Pay {total}</button>
                 </Drawer.Body>
             }

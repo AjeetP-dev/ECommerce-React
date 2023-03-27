@@ -7,14 +7,12 @@ $minCardWidth:480px;
     @include d-flex-justify-btw;
     padding: 2.3% 3.6% ;
     flex-wrap: wrap;
-    background-color: transparent;
+    background-color: white;
     min-height: 70vh;
     border-radius: 2rem;
     margin:0% 5% ;
     box-shadow: 0px 0px 1.3rem 1rem  rgb(189, 187, 187);
 }
-
-
 .menuOptions {
     width: 29%;
     margin: 1%;

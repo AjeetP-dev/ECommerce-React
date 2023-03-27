@@ -23,7 +23,7 @@ export default function ProductsCard({ id, name, price, currency, delivery, thum
                         <br />
                     </Content>
                     <Footer>
-                        <p className="price">{price}&nbsp;{currency}</p>
+                        <p className="price">$&nbsp;{price}</p>
                         {inStock===true?<button className="addToCart" onClick={()=>addToCart(item)}>Add to Cart</button>:
                         <div style={{textAlign:"center"}}><h5 style={{margin:"auto",textAlign:"center"}}>Out Of Stock</h5></div>}
                     </Footer>
