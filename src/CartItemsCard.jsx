@@ -43,13 +43,13 @@ export default function CartItemsCard({ item, id }) {
             <div id={`cart-${id}`} className="cart-items">
                 <h4>{item["name"]}</h4>
                 <div style={{ display: "flex", alignItems: "center", width: "100%" }}>
-                    <button className="btn-sm" style={{ marginRight: "13px", padding: "3px" }} onClick={() => remFromCart()}><AiFillDelete></AiFillDelete></button>
+                    <button className="btn-sm" style={{ marginRight: "13px", padding: "3px",backgroundColor:"#ba000d",color:"white" }} onClick={() => remFromCart()}><AiFillDelete></AiFillDelete></button>
                     <span style={{ width: "85%", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
                         <img className="prodImages" src={`${item["thumbnail"]}`} />
                         <span className="cart-card-price">@{item["price"]}</span>
-                        <button className="btn-sm" onClick={() => decQuant({ [id]: item })}>-</button>
+                        <button className="btn-sm" style={{backgroundColor:"#a31545",color:"white"}} onClick={() => decQuant({ [id]: item })}>-</button>
                         <span ref={quantRef} className="cart-card-quantity">{item["quantity"]}</span>
-                        <button className="btn-sm" onClick={() => incQuant({ [id]: item })}>+</button>
+                        <button className="btn-sm" style={{backgroundColor:"#46583f",color:"white"}}fonClick={() => incQuant({ [id]: item })}>+</button>
                         <dt style={{ fontSize: "20px" }}>Total:</dt><dl style={{ fontSize: "20px" }} ref={totalRef} className="cart-card-total">{Number(item["quantity"]) * Number(item["price"])}</dl>
                     </span>
                 </div>
