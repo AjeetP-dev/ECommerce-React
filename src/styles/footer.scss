@@ -1,27 +1,152 @@
-#footer{
-display: flex;
-flex-direction: row;
-flex-wrap: wrap;
+@import "common";
 
-div{
+#footer {
+    position: sticky;
+    margin: auto;
+    margin-top: 80px;
+    width: 100%;
+    text-align: center;
+    top: 100%;
+    font-family: 'Montserrat Alternates', sans-serif;
+    font-weight: 600;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    color: #d9dfdf;
+    background-color: $main-color-2;
+    padding: 3% 0%;
+}
+
+#footer-div1 {
+    @include d-flex-justify-btw;
+    flex-wrap: wrap;
+    align-items: center;
+    width: 50%;
+}
+
+#footer-div2 {
+    @include d-flex-justify-btw;
+    flex-wrap: wrap;
+    align-items: center;
+    margin-left: 10%;
+}
+
+div {
     box-sizing: border-box;
-}}
-#title {
-    display: inline;
-    max-width: 450px;
-    min-width: 450px;
-    text-align: left;
-    font-size: 3rem;
-    margin-right: 2%;
-}
-#subscription{
-    max-width: 450px;
-    width: 450px;
-}
-dt {
-    display: inline-block;
 }
 
-dl {
-    display: inline-block;
+#title {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+    width: 50%;
+    margin-bottom: 7%;
+
+    h1 {
+        text-align: left;
+    }
+}
+
+#subscription {
+    text-align: left;
+    margin-bottom: 7%;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+
+    span {
+        display: flex;
+        flex-wrap: nowrap;
+
+        input {
+            margin: "1% 0";
+            width: 90%;
+            height: 50px;
+            color: black;
+
+        }
+
+        button {
+            margin: "1% 0";
+            width: 20%;
+            height: 50px;
+            color: black;
+            letter-spacing: 1px;
+            border: none;
+        }
+    }
+
+    dt {
+        display: inline-block;
+        font-size: 15px;
+    }
+
+    dl {
+        margin-left: 10px;
+        display: inline-block;
+    }
+}
+
+@media screen and (max-width:420px) {
+    #footer {
+        font-size: small;
+        align-items: center;
+    }
+
+    #title {
+        width: 100%;
+    }
+
+    #footer-div1 {
+        display: block;
+        align-content: center;
+        width: 90%;
+    }
+
+    #footer-div2 {
+        display: flex;
+        flex-direction: column;
+    }
+
+    #subscription {
+        margin: auto;
+        text-align: center;
+        margin-bottom: 7%;
+        width: 100%;
+
+        span {
+            width: 100%;
+            display: block;
+            input {
+                width: 65%;
+                margin: "1% 0";
+                height: 50px;
+                color: black;
+            }
+            button {
+                text-align: center;
+                margin: "1% 0";
+                width: 25%;
+                height: 50px;
+                color: black;
+                letter-spacing: 1px;
+                border: none;
+            }
+        }
+        #contact{
+            dt {
+                display: inline-block;
+                font-size: 15px;
+            }
+        
+            dl {
+                margin-left: 10px;
+                display: inline-block;
+            }
+        }
+    } 
+
+    // commit
 }

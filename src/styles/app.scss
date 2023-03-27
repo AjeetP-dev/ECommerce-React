@@ -1,21 +1,25 @@
+@import "common";
+body{
+background-color: $main-color-1;
+}
 #root{
     height: 100vh;
     .rs-divider-horizontal{
         height: 6px;
     }
-    #footer {
-        padding: 3% 5%;
-        margin: auto;
-        top: 100%;
-        width: 100%;
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-between;
-        text-align: center;
-    }
-    // @media(min-width: )
 }
 
-
-
-// #28575d
+@media screen and (max-width:420px) {
+    h1{
+        font-size: 29px;
+    }
+    h2{
+        font-size: medium;
+    }
+    h3{
+        font-size:20px;
+    }
+    h4{
+        font-size:16px;
+    }
+}

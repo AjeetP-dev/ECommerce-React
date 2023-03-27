@@ -6,19 +6,30 @@
 nav {
     @include d-flex-justify-btw;
     padding: 0.3px 4%;
-    color: #575959;
+    margin-bottom: 80px;
+    color: #d9dfdf;
     padding-top: 10px;
-a,a:hover{
+    background-color: $main-color-2;
+a{
     font-family: 'Montserrat Alternates', sans-serif;
-    color: black;
+    background-color: transparent;
+    color:#d9dfdf;
+    border-radius: 22px;
+    padding: 2px 5px;
+    &:hover{
+        background-color: white;
+        color:$main-color-2;
+        font-weight: 500;
+    }
     &:focus{
-        color: black;
+        background-color: transparent;
+        color:white;
+        font-weight: 500;
     }
 }
     .navElem {
         font-size: 40px;
-        font-size: 40px;
-        color: #575959;
+        color: #d9dfdf;
         cursor: pointer;
         background: transparent;
         text-decoration: none;

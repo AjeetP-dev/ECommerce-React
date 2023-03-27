@@ -1,7 +1,16 @@
+$sm-media-size:420px;
+$md-sm-media-size:420px;
+$md-lg-media-size:420px;
+$lg-media-size:420px;
+
 @mixin d-flex-justify-btw{
     display: flex;
-    flex-direction: row;
     justify-content: space-between;
+    flex-wrap: wrap;
 }
 
-$min-width:490px;
+$min-width:420px;
+$main-color-1:#d3d7cd;
+$main-color-2:#354131;
+$main-color-3:#e4e4e4;
+$main-color-4:#46583f;
