@@ -1,17 +1,13 @@
 import React, { useContext } from "react"
 import products from "./products.json"
 import ProductsCard from "./ProductsCard"
-import { Routes, Route } from "react-router-dom"
 import CartContext from "./contexts/CartContext"
 import "./styles/menu.scss"
 import FIlters from "./Filters"
-import { Animation, CheckPicker, Divider } from "rsuite"
+import { Animation } from "rsuite"
 
 export default function Menu({ categoryId }) {
-    let [numOfItemsInCart, setNumOfItemsInCart] = React.useState(0)
     const [filterSelected, setFilterSelected] = React.useState([])
-    // console.log("inMenu")
-    console.log(filterSelected)
 
     function genProdCard(prodDetails) {
         return (
@@ -25,7 +21,6 @@ export default function Menu({ categoryId }) {
                     instock={prodDetails["instock"]}
                     categoryId={prodDetails["categoryId"]}
                     thumbnail={prodDetails["thumbnail"]}
-                    setNumOfItemsInCart={setNumOfItemsInCart}
                 />
             </CartContext>
         )

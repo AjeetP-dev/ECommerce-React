@@ -8,55 +8,74 @@ export default function CartContext({ children }) {
     const { setTotal, setNumberOfItemsInCart } = React.useContext(sharedStateContext)
 
     const decreaseQuant = (item) => {
-        let id = Object.keys(item)[0]
-        let cart = JSON.parse(localStorage.getItem("cart")) === null ? {} : JSON.parse(localStorage.getItem("cart"))
-        let price = Object.values(item)[0]["price"]
-        if (cart != null && id in cart === true) {
-            cart[id]["quantity"] = `${Number(cart[id]["quantity"]) - 1}`
-            localStorage.setItem("total", `${Number(localStorage.getItem("total")) - price}`)
-            if (cart[id]["quantity"] === "0") {
-                removeFromCart({ id: item })
-                return
-            }
-            localStorage.setItem("cart", JSON.stringify({ ...cart }))
-        }
+        let itemID = Object.keys(item)[0]
+        let itemProperties = Object.values(item)[0]
+        let { price, quantity } = itemProperties
+        let cart = JSON.parse(localStorage.getItem("cart"))
 
-        setTotal(prev => prev - Number(price))
+        // updating cart in local Storage
+        cart[itemID]["quantity"] = `${Number(quantity) - 1}`
+        if (cart[itemID]["quantity"] === "0") {
+            removeFromCart({ [itemID]: itemProperties })
+            return
+        }
+        localStorage.setItem("cart", JSON.stringify({ ...cart }))
+
+        // updating total in local Storage and global state variable total
+        setTotal((prev) => {
+            let newTotal = Number(prev) - Number(price)
+            localStorage.setItem("total", `${newTotal}`)
+            return (newTotal)
+        })
+
+        //updating no of items in cart in local Storage and global state variable noOfItemsInCart
         setNumberOfItemsInCart((prev) => {
-            localStorage.setItem("noOfItems",`${Number(prev) - 1}`)
-            return Number(prev) - 1}
-            )
+            let newNoOfItemsInCart = Number(prev) - 1
+            localStorage.setItem("noOfItems", `${newNoOfItemsInCart}`)
+            return newNoOfItemsInCart
+        })
 
     }
 
 
     const addToCart = (item) => {
+        let itemID = Object.keys(item)[0]
+        let itemProperties = Object.values(item)[0]
+        let { price, quantity } = itemProperties
+
         let cart = JSON.parse(localStorage.getItem("cart")) === null ? {} : JSON.parse(localStorage.getItem("cart"))
-        let id = Object.keys(item)[0]
-        let price = Object.values(item)[0]["price"]
-        if (cart != null && id in cart === true) {
-            cart[id]["quantity"] = `${Number(cart[id]["quantity"]) + 1}`
+
+        // updating cart in local Storage
+        if (itemID in cart === true) {
+            cart[itemID]["quantity"] = `${Number(quantity) + 1}`
             localStorage.setItem("cart", JSON.stringify({ ...cart }))
         }
-
         else {
             localStorage.setItem("cart", JSON.stringify({ ...cart, ...item }))
         }
-        localStorage.setItem("total", `${Number(localStorage.getItem("total")) + price}`)
-        setTotal(prev => Number(prev) + Number(price))
+
+        // updating total in local Storage and global state variable total
+        setTotal((prev) => {
+            let newTotal = Number(prev) + Number(price)
+            localStorage.setItem("total", `${newTotal}`)
+            return (newTotal)
+        })
+
+        //updating no of items in cart in local Storage and global state variable noOfItemsInCart
         setNumberOfItemsInCart((prev) => {
-            localStorage.setItem("noOfItems",`${Number(prev) + 1}`)
-            return Number(prev) + 1}
-            )
+            let newNoOfItemsInCart = Number(prev) + 1
+            localStorage.setItem("noOfItems", `${newNoOfItemsInCart}`)
+            return newNoOfItemsInCart
+        })
     }
 
     const removeFromCart = (item) => {
-        let cart = JSON.parse(localStorage.getItem("cart")) === null ? {} : JSON.parse(localStorage.getItem("cart"))
+        let cart = JSON.parse(localStorage.getItem("cart"))
         let updatedCart = {}
-        let price = Object.values(item)[0]["price"]
-        let quantity = Object.values(item)[0]["quantity"]
-        setTotal(prev => prev - (Number(price) * Number(quantity)))
-        localStorage.setItem("total", `${Number(localStorage.getItem("total")) - price * Number(Object.values(item)[0]["quantity"])}`)
+        let itemProperties = Object.values(item)[0]
+        let { price, quantity } = itemProperties
+
+        //If cart contains no items setting the initial values
         if (Object.keys(cart).length === 1) {
             localStorage.removeItem("cart")
             localStorage.removeItem("total")
@@ -66,6 +85,7 @@ export default function CartContext({ children }) {
             return
         }
 
+        // updating cart in local Storage
         Object.keys(cart).filter((iterator) => {
             if (!(iterator === Object.keys(item)[0])) {
                 // console.log("remItem")
@@ -74,27 +94,25 @@ export default function CartContext({ children }) {
             }
         })
         localStorage.setItem("cart", JSON.stringify(updatedCart))
+
+        // updating total in local Storage and global state variable total
+        setTotal((prev) => {
+            let newTotal = Number(prev) - (Number(price) * Number(quantity))
+            localStorage.setItem("total", `${newTotal}`)
+            return (newTotal)
+        })
+
+        //updating no of items in cart in local Storage and global state variable noOfItemsInCart
         setNumberOfItemsInCart((prev) => {
-            localStorage.setItem("noOfItems",`${prev - Number(quantity)}`)
-            return (prev - Number(quantity))}
-            )
-    }
-
-
-    function total() {
-        let total = localStorage.getItem("total")
-        if (total === null || total === undefined) {
-            console.log("setting total to 0")
-            localStorage.setItem("total", "0")
-            return "0";
-        }
-        else
-            return total
+            let newNoOfItemsInCart = Number(prev) - Number(quantity)
+            localStorage.setItem("noOfItems", `${newNoOfItemsInCart}`)
+            return (newNoOfItemsInCart)
+        })
     }
 
     return (
         <>
-            <cartFromContext.Provider value={{ addToCart, removeFromCart, decreaseQuant, total }}>
+            <cartFromContext.Provider value={{ addToCart, removeFromCart, decreaseQuant}}>
                 {children}
             </cartFromContext.Provider>
         </>

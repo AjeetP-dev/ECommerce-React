@@ -6,6 +6,7 @@
 nav {
     @include d-flex-justify-btw;
     padding: 0.3px 4%;
+    margin-bottom: 80px;
     color: #d9dfdf;
     padding-top: 10px;
     background-color: $main-color-2;
@@ -27,7 +28,6 @@ a{
     }
 }
     .navElem {
-        font-size: 40px;
         font-size: 40px;
         color: #d9dfdf;
         cursor: pointer;
