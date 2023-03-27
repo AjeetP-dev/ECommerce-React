@@ -35,6 +35,7 @@ export default function Cart({ isCartVisible, setIsCartVisible }) {
             {total === "0" &&
                 <Drawer.Body style={{ display: "flex", flexDirection: "column", alignItems: "center", boxSizing: "border-box" }}>
                     <img src={emptyCartyBG} style={{ width: "400px", marginBottom: "10%", opacity: "0.6" }} />
+
                     <h3>Cart Empty </h3>
                 </Drawer.Body>
             }
