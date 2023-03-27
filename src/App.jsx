@@ -36,7 +36,6 @@ export default function App() {
                 </div>}
               />)}
 
-
             <Route index element={
               <Home />
             } />
@@ -48,6 +47,8 @@ export default function App() {
 
         </CartContext>
       </SharedStateContext>
+
+
       <footer id="footer"><Footer /></footer>
     </>
   )}

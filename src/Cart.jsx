@@ -10,7 +10,7 @@ export default function Cart({ isCartVisible, setIsCartVisible }) {
     let cart = JSON.parse(localStorage.getItem("cart"))
 
     return (
-        <Drawer open={isCartVisible} onClose={() => setIsCartVisible(false)} placement="right" size="sm" backdrop={true} >
+        <Drawer open={isCartVisible} onClose={() => setIsCartVisible(false)} id="cart-drawer" placement="right" size="sm" backdrop={true} >
             <Drawer.Header style={{ backgroundColor: "#354131" }}>
                 <Drawer.Title><h3 style={{ fontFamily: "Montserrat Alternates', sans-serif", color: "#d9dfdf" }}>Cart</h3></Drawer.Title>
             </Drawer.Header>
@@ -35,7 +35,6 @@ export default function Cart({ isCartVisible, setIsCartVisible }) {
             {total === "0" &&
                 <Drawer.Body style={{ display: "flex", flexDirection: "column", alignItems: "center", boxSizing: "border-box" }}>
                     <img src={emptyCartyBG} style={{ width: "400px", marginBottom: "10%", opacity: "0.6" }} />
-
                     <h3>Cart Empty </h3>
                 </Drawer.Body>
             }
