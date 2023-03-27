@@ -1,10 +1,7 @@
-import { Nav,Button, CheckPicker, Drawer, Tooltip, Whisper, Checkbox } from "rsuite"
 import HomeIcon from '@rsuite/icons/legacy/Home';
 import { Link } from 'react-router-dom'
-import categories from "./categories.json"
 import React from "react";
 import "./styles/navbar.scss"
-import Cart from "./Cart"
 import { AiOutlineShoppingCart } from "react-icons/ai";
 import { sharedStateContext } from "./contexts/SharedStatesContext";
 

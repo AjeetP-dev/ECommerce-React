@@ -4,8 +4,12 @@
 
 
 nav {
+    position: sticky;
+    top: 0;
+    z-index: 1;
     @include d-flex-justify-btw;
     padding: 0.3px 4%;
+    margin-bottom: 30px;
     color: #d9dfdf;
     padding-top: 10px;
     background-color: $main-color-2;
@@ -28,11 +32,18 @@ a{
 }
     .navElem {
         font-size: 40px;
-        font-size: 40px;
         color: #d9dfdf;
         cursor: pointer;
         background: transparent;
         text-decoration: none;
         border: none;
     }
+}
+
+@media screen and (max-width:700px) {
+    nav{
+    .navElem{
+        font-size: 30px;
+    }
+}
 }

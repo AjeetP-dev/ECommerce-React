@@ -1,7 +1,12 @@
+$sm-media-size:420px;
+$md-sm-media-size:420px;
+$md-lg-media-size:420px;
+$lg-media-size:420px;
+
 @mixin d-flex-justify-btw{
     display: flex;
-    flex-direction: row;
     justify-content: space-between;
+    flex-wrap: wrap;
 }
 
 $min-width:420px;

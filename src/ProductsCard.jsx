@@ -2,9 +2,8 @@ import { Container, Header, Content, Footer, ButtonGroup, Button, IconButton, Fl
 import React from "react";
 import { cartFromContext } from "./contexts/CartContext";
 
-export default function ProductsCard({ id, name, price, currency, delivery, thumbnail, instock, categoryId ,setNumOfItemsInCart}) {
+export default function ProductsCard({ id, name, price, currency, delivery, thumbnail, inStock, categoryId}) {
     let {addToCart}=React.useContext(cartFromContext)
-
     let item={[id]:
         {name:name,
         price:price,
@@ -16,7 +15,7 @@ export default function ProductsCard({ id, name, price, currency, delivery, thum
 
     return (
         <>
-            <div id={`prod-${id}`} key={`prod-${id}`} className={`${categoryId}`} style={{opacity:delivery===true?"1":"0.7"}}>
+            <div id={`prod-${id}`} key={`prod-${id}`} className={`${categoryId}`} style={{opacity:inStock===true?"1":"0.7"}}>
                 <img className="prodImages" src={thumbnail} />
                 <Container>
                     <Header><p className="prodNames">{name}</p></Header>
@@ -24,9 +23,9 @@ export default function ProductsCard({ id, name, price, currency, delivery, thum
                         <br />
                     </Content>
                     <Footer>
-                        <p className="price">{price}&nbsp;{currency}</p>
-                        {delivery===true?<Button size="lg" onClick={()=>addToCart(item)} >Add to Cart</Button>:
-                        <div><h4>Out Of Stock</h4></div>}
+                        <p className="price">$&nbsp;{price}</p>
+                        {inStock===true?<button className="addToCart" onClick={()=>addToCart(item)}>Add to Cart</button>:
+                        <div style={{textAlign:"center"}}><h5 style={{margin:"auto",textAlign:"center"}}>Out Of Stock</h5></div>}
                     </Footer>
                 </Container>
                 </div>

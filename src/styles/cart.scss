@@ -8,6 +8,17 @@
     flex-direction: column;
     margin-bottom: 6%;
     font-size: 15px;
+}
+    .cart-items>div>span{
+        display: "flex";
+        flex-direction: "column"; 
+        justify-content: "space-between" ;
+    }
+.quantity-btn-container{
+    display: flex;
+    margin-left: 5%;
+    margin-right: 15%;
+}
     .prodImages {
         border-radius: 15px;
         width: 130px;
@@ -17,18 +28,14 @@
         margin-right: 2%;
         margin-left: 5%;
     }
-    dl{
-
-        margin-right: 30%;
-    }
     .btn-sm{
         box-sizing: border-box;
         height: 40px;
-        border-radius: 15px;
+        border-radius: 0.83rem;
         color: #a0a4a8;
-        padding:0px 20px;
+        padding:0px 30%;
         text-align: center;
-        font-size: 25px;
+        font-size: 1.7rem;
         box-shadow: 0px 0px 3% 7px #b4b1a7;
         transition: all 0.6s ease-out;
     }
@@ -36,21 +43,91 @@
         margin: 0px 4%;
         font-size: 20px;
     }
-
+    
     .cart-card-quantity{
         font-size: 19px;
-        margin: 0 4%;
+        margin: 0 30%;
     }
-}
+
 #grandTotal{
     font-family: 'Montserrat Alternates', sans-serif;
-    font-size: 31px;
+    font-size: 1.3rem;
     color: rgb(219, 216, 216);
     font-weight: 600;
     background-color: $main-color-2;
     border-radius: 10px;
-
+    
 }
+
 #empty{
     background-image: url("../src/assets/emptyCartBG.png");
 }
+
+@media screen and (max-width:550px) {
+    #cart-drawer{
+        width: 100vw;
+    .rs-drawer-content{
+        width: 100%;
+
+        .rs-drawer-body{
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+    }
+}
+.cart-items>div{
+    display: block;
+}
+.cart-items>div>span{
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+.dlt-btn{
+    display: none;
+}
+.prodImages{
+    height: 25%;
+    width: 50%;
+    margin-bottom: 10%;
+}
+.cart-card-price{
+    width: 30%;
+}
+.quantity-btn-container{
+    width: 25%;
+}
+.cart-card-quantity{
+    margin: 0px 30%;
+}
+.btn-sm{
+    font-size: 13px;
+    border-radius: 1rem;
+    color: #a0a4a8;
+    padding:0px 20%;
+    text-align: center;
+    box-shadow: 0px 0px 3% 7px #b4b1a7;
+    transition: all 0.6s ease-out;
+}
+dt{
+    display: inline-block;
+    margin-left: 10%;
+}
+.cart-card-total{
+    margin: 0px;
+}
+}
+
+
+#grandTotal{
+    font-family: 'Montserrat Alternates', sans-serif;
+    font-size: 25px;
+    color: rgb(219, 216, 216);
+    font-weight: 600;
+    background-color: $main-color-2;
+    border-radius: 1.3rem;
+    
+}
+
+
