@@ -15,7 +15,6 @@ export default function App() {
 
   const [isCartVisible, setIsCartVisible] = React.useState(false)
 
-
   return (
     <>
       <SharedStateContext>
@@ -35,7 +34,6 @@ export default function App() {
               <Route path={`menu/${iterator.id}`} element={
                 <Menu categoryId={iterator.id} />}
               />)}
-
 
             <Route index element={
               <Home />

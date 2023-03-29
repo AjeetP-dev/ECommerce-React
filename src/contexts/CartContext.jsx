@@ -45,7 +45,6 @@ export default function CartContext({ children }) {
         localStorage.setItem("cart", JSON.stringify({ ...cart }))
 
         notify({ productName: name, type: "remove" })
-
         // updating total in local Storage and global state variable total
         setTotal((prev) => {
             let newTotal = Number(prev) - Number(price)
@@ -100,7 +99,6 @@ export default function CartContext({ children }) {
             localStorage.setItem("noOfItems", `${newNoOfItemsInCart}`)
             return newNoOfItemsInCart
         })
-
     }
 
     const removeFromCart = (item) => {
