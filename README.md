@@ -1,7 +1,12 @@
 # ECommerce-React
+
+
+![34](https://user-images.githubusercontent.com/113270076/228489775-58959061-7082-42f2-b214-953f391341d9.svg)
+
 This project shows a simple yet attractive UI design. It is wholly built on ReactJS Frameworks. The design is 
 responsive and supports Smartphones tabs (or Ipads) and Desktops. Project is based on Component Based React.
 It is a SPA (Single Page Application) routed using react-router
+
 
 It uses the following Hooks majorly:
 
