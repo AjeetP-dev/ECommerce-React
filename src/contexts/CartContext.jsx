@@ -10,16 +10,24 @@ export default function CartContext({ children }) {
     let key;
 
     function notify(header) {
-        let {type,productName}=header
-        if(type==="added"){
-        toaster.push(
-            (<Notification type="success" header={`${productName} is added`}>
-            </Notification>),{duration:730})
+        let { type, productName } = header
+        if (type === "added") {
+            toaster.push(
+                (<Notification type="success" header={`${productName} is added`}>
+                </Notification>), { duration: 730 })
+        }
+        else if (type === "limitExceeded") {
+            toaster.push(
+                (<Notification type="info" header="Limit Exceeded">
+                    You can only order 3 of a Single Product
+                </Notification>), { duration: 1200 })
         }
         else
-        toaster.push(
-            (<Notification type="info" header={`${productName} is removed`}>
-            </Notification>),{duration:600})
+            toaster.push(
+                (<Notification type="info" header={`${productName} is removed`}>
+                </Notification>), { duration: 600 })
+
+        return
     }
 
     const decreaseQuant = (item) => {
@@ -35,9 +43,9 @@ export default function CartContext({ children }) {
             return
         }
         localStorage.setItem("cart", JSON.stringify({ ...cart }))
-        
-        notify({productName:name,type:"remove"})
-        
+
+        notify({ productName: name, type: "remove" })
+
         // updating total in local Storage and global state variable total
         setTotal((prev) => {
             let newTotal = Number(prev) - Number(price)
@@ -58,15 +66,22 @@ export default function CartContext({ children }) {
     const addToCart = (item) => {
         let itemID = Object.keys(item)[0]
         let itemProperties = Object.values(item)[0]
-        let { price, quantity, name } = itemProperties
+        let { price, name } = itemProperties
         let cart = JSON.parse(localStorage.getItem("cart")) === null ? {} : JSON.parse(localStorage.getItem("cart"))
 
-        notify({productName:name,type:"added"})
-
-        // updating cart in local Storage
+        // updating cart in local Storage and notifying
         if (itemID in cart === true) {
-            cart[itemID]["quantity"] = `${Number(quantity) + 1}`
-            localStorage.setItem("cart", JSON.stringify({ ...cart }))
+            let updatedQuantity = Number(cart[itemID]["quantity"]) + 1
+
+            if (updatedQuantity > 3) {
+                notify({ productName: name, type: "limitExceeded" })
+                return false
+            }
+            else {
+                notify({ productName: name, type: "added" })
+                cart[itemID]["quantity"] = Number(cart[itemID]["quantity"]) + 1
+                localStorage.setItem("cart", JSON.stringify({ ...cart }))
+            }
         }
         else {
             localStorage.setItem("cart", JSON.stringify({ ...cart, ...item }))
@@ -85,6 +100,7 @@ export default function CartContext({ children }) {
             localStorage.setItem("noOfItems", `${newNoOfItemsInCart}`)
             return newNoOfItemsInCart
         })
+
     }
 
     const removeFromCart = (item) => {
@@ -93,7 +109,7 @@ export default function CartContext({ children }) {
         let itemProperties = Object.values(item)[0]
         let { price, quantity, name } = itemProperties
 
-        notify({productName:name,type:"remove"})
+        notify({ productName: name, type: "remove" })
 
         //If cart contains no items setting the initial values
         if (Object.keys(cart).length === 1) {

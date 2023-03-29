@@ -4,6 +4,7 @@ import CartItemsCard from "./CartItemsCard"
 import "./styles/cart.scss"
 import { sharedStateContext } from "./contexts/SharedStatesContext"
 import emptyCartyBG from "./assets/emptyCartBG.png"
+import { Link, Navigate, redirect } from "react-router-dom"
 
 export default function Cart({ isCartVisible, setIsCartVisible }) {
     const { total } = React.useContext(sharedStateContext)
@@ -26,7 +27,7 @@ export default function Cart({ isCartVisible, setIsCartVisible }) {
                             />
                         )}
                     </section>
-                    <button id="grandTotal">Proceed to Pay {total}</button>
+                    <Link to="/thanks"><button id="grandTotal" onClick={()=>setIsCartVisible(false)}>Proceed to Pay {total}</button></Link>
                 </Drawer.Body>
             }
 
